@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--日志输出打印-->
+    <settings>
+        <!--    可以在控制台输出日志信息：sql语句和参数 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--2.设置别名-->
+    <typeAliases>
+        <!--由于mybatis支持的别名中只有map没有list和set ,单独配置list和set-->
+        <typeAlias type="java.util.List" alias="list"/>
+        <typeAlias type="java.util.Set" alias="set"/>
+        <!--配置单个类的别名-->
+        <!--<typeAlias type="com.pojo.User" alias="user" ></typeAlias>-->
+        <!--配置整个pojo包下所有类的别名,类名就是别名，不区分大小写-->
+        <package name="com.team.house.entity"/>
+    </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        </plugin>
+    </plugins>
+</configuration>
+
+
+
+
