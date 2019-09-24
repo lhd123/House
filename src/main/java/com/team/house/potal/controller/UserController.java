@@ -51,7 +51,21 @@ public class UserController {
             //设置保存的时间
             session.setMaxInactiveInterval(600);  //秒
            return "redirect:getHouse";
-
        }
+    }
+    //实现登入:通过手机验证码
+    @RequestMapping("/login2")
+    public String checkUserName(String inputCode,HttpSession session){
+        //获取生成的随机验证码
+        String code=(String)session.getAttribute("code");
+        //比较验证码
+        if(inputCode.equals(code))
+        {
+            //1.通过手机号查询单个用户信息，并保存到session
+
+            return "redirect:getHouse";
+        }else{
+            return "login";
+        }
     }
 }
